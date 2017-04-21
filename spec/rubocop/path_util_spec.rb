@@ -78,7 +78,7 @@ describe RuboCop::PathUtil do
 
     it 'matches regexps' do
       expect(described_class.match_path?(/^d.*e$/, 'dir/file')).to be_truthy
-      expect(described_class.match_path?(/^d.*e$/, 'dir/filez')).to be_falsey
+      expect(described_class.match_path?(/^d.*e$/, "dir/file\xBF")).to be_falsey
     end
   end
 end
